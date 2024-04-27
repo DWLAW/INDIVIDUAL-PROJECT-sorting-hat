@@ -97,7 +97,7 @@ Apply to be a First Year Student!
 `;
 renderToDom('#formContainer', domString);
 };
-//TODO iterate the house cards to the DOM\
+// iterate the house cards to the DOM\
 const cardsOnDom = (students) => {
   let domString = "";
   for (const student of students) {
@@ -140,7 +140,7 @@ const evilCardsOnDom = (badGuys) => {
 };
 
 
-// TODO event listerners 
+// event listerners 
 const eventListeners = () =>{
 const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
 
@@ -163,7 +163,9 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
     const index = students.findIndex((student) => student.id === id);
       if (e.target.id.includes('delete')) {
 
-        students.splice(index, 1);
+        let expelledStudent = students.splice(index, 1)[0];
+        expelledStudent.house ="Voldemort's Army";
+        badGuys.push(expelledStudent)          
         
         cardsOnDom(students);
         evilCardsOnDom(badGuys);
