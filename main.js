@@ -33,14 +33,14 @@ const renderToDom = (divId, textToRender) => {
 }
 
 // Iterate a card for the sorting hat intro to the DOM
-// TODO fill out data on card, add an image, etc.
+
 const introCardDom = () => {
   const domString = `
   <div class="card" style="width: 50rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img src="img/hogwartscrest.png" class="card-img-top" alt="...">
   <div class="card-body">
-  <h5 class="Welcome to Hogwarts Sorting Hat">Card title</h5>
-  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <h5 class="cardTitle">Welcome to Hogwarts Sorting Hat</h5>
+  <p class="card-text">Here you can view all students and the houses they are in and get sorted into one yourself.</p>
   </div>
   `;
   renderToDom("#introCard", domString)
@@ -63,10 +63,12 @@ renderToDom("#filterContainer", domString)
 // form
 
 const formModal = () => {
-const domString = `<!-- Button trigger modal -->
+const domString = `
+<!-- Button trigger modal -->
 <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addStudent">
 Apply to be a First Year Student!
 </button>
+<!-- Modal -->
 <div class="modal fade" id="addStudent" tabindex="-1" aria-labelledby="addStudent" aria-hidden="true">
 <div class="modal-dialog modal-fullscreen-md-down">
   <div class="modal-content">
@@ -76,17 +78,22 @@ Apply to be a First Year Student!
     </div>
     <div class="modal-body" id="modal-body">
     <form>
-    <div class="form-floating mb-3">
-      <input class="form-control form-control-lg" type="text" placeholder="First Year's Name" id="name" aria-label="name" required>
-      <label for="name">First Year's Name</label>
-    </div>
+      <div class="form-floating mb-3">
+        <input class="form-control form-control-lg" type="text" placeholder="First Year's Name" id="name" aria-label="name" required>
+        <label for="name">First Year's Name</label>
+      </dkv>
+        
+      <div class="form-floating mb-3">
+          <input class="form-control form-control-lg" type="url"  placeholder="Student Photo" id="image" aria-label="image"required>
+          <label for="imageUrl">Student Photo</label>
       </div>
+      <div>
+          <button  type="submit"  class="btn btn-success" >Submit </button>
+      </div>
+    </form>
       
-          <button 
-            type="submit" 
-            class="btn btn-success" >Submit </button>
-        </form>
-      </div>
+    </div>
+    
 `;
 renderToDom('#formContainer', domString);
 };
@@ -132,9 +139,10 @@ const evilCardsOnDom = (badGuys) => {
     renderToDom('#evilCardContainer', domString);
 };
 
+
 // TODO event listerners 
 const eventListeners = () =>{
-  const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
+const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
 
 // filter buttons
   document.querySelector('#filterContainer').addEventListener('click', (e) => {
@@ -146,9 +154,10 @@ const eventListeners = () =>{
         cardsOnDom(houses);
         evilCardsOnDom('');
       }
+    
   });
   // button on card
-  // TODO take the
+  // TODO take the deleted student and add it to the expelled student list
   document.querySelector('#cardContainer').addEventListener('click', (e) => {
     const [, id] = e.target.id.split("--");
     const index = students.findIndex((student) => student.id === id);
@@ -158,6 +167,26 @@ const eventListeners = () =>{
         cardsOnDom(students);
         evilCardsOnDom(badGuys);
       }
+  });
+
+  // FORM SUBMIT
+  const form = document.querySelector('form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let newStudent = {
+      id: students.length+1,
+      name: document.querySelector("#name").value,
+      house: " " ,
+      imageUrl: document.querySelector("#image").value,
+    };
+    students.push(newStudent);
+
+    cardsOnDom(students);
+
+
+    formModal.hide()
+    form.reset();
+
   });
 
 
