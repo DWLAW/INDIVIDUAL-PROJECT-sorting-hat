@@ -51,6 +51,7 @@ const introCardDom = () => {
 // TODO make them filter
 const filterBtns = () => {
   const domString= `
+  <h4>Filter Houses</h4>
   <button type="button" id ="showALL" class="btn btn-outline-primary">Show All</button>
   <button type="button" id="Slytherin" class="btn btn-outline-success">Slytherin</button>
   <button type="button" id="Gryffindor" class="btn btn-outline-warning">Gryffindor</button>
@@ -96,7 +97,6 @@ const cardsOnDom = (students) => {
     //card 
       domString += `
       <div id = "studentCardContainer"> 
-      <h4>Students</h4>
         <div class="card" style="width: 18rem;" id = "studentCards">
           <h5 class="card-title">${student.name}</h5>
           <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
@@ -117,7 +117,7 @@ const evilCardsOnDom = (badGuys) => {
     //card 
       domString += `
       <div id = "evilCardContainer"> 
-      <h4>Army of Darkness</h4>
+      
         <div class="card" style="width: 18rem;" id = "badGuyCards">
           <h5 class="card-title">${badGuy.name}</h5>
           <img src=${badGuy.imageUrl} class="card-img-top" alt=${badGuy.name}>
@@ -134,19 +134,32 @@ const evilCardsOnDom = (badGuys) => {
 
 // TODO event listerners 
 const eventListeners = () =>{
-
+  const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
 
 // filter buttons
   document.querySelector('#filterContainer').addEventListener('click', (e) => {
-    console.log(e.target.id)
       if(e.target.id === "showALL"){
         cardsOnDom(students);
+        evilCardsOnDom(badGuys);
       } else if (e.target.id){
         const houses = students.filter(houseType => houseType.house === e.target.id);
         cardsOnDom(houses);
+        evilCardsOnDom('');
       }
-
   });
+  // button on card
+  // TODO take the
+  document.querySelector('#cardContainer').addEventListener('click', (e) => {
+    const [, id] = e.target.id.split("--");
+    const index = students.findIndex((student) => student.id === id);
+      if (e.target.id.includes('delete')) {
+      students.splice(index, 1);
+        
+        cardsOnDom(students);
+        evilCardsOnDom(badGuys);
+      }
+  });
+
 
 
 };
