@@ -123,7 +123,7 @@ const evilCardsOnDom = (badGuys) => {
   for (const badGuy of badGuys) {
     //card 
       domString += `
-      <div id = "evilCardContainer"> 
+      <div id = "evilStudentCardContainer"> 
       
         <div class="card" style="width: 18rem;" id = "badGuyCards">
           <h5 class="card-title">${badGuy.name}</h5>
@@ -152,12 +152,12 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
       } else if (e.target.id){
         const houses = students.filter(houseType => houseType.house === e.target.id);
         cardsOnDom(houses);
-        evilCardsOnDom('');
+        evilCardsOnDom(badGuys);
       }
     
   });
   // button on card
-  // TODO take the deleted student and add it to the expelled student list
+  // takes the deleted student and adds it to the expelled student list
   document.querySelector('#cardContainer').addEventListener('click', (e) => {
     const [, id] = e.target.id.split("--");
     const index = students.findIndex((student) => student.id === id);
