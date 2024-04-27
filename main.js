@@ -45,22 +45,22 @@ const introCardDom = () => {
   `;
   renderToDom("#introCard", domString)
 };
-//TODO iterate a form  that pops up that then sorts the info into a houses array
+
 
 // iterate filter buttons
 // TODO make them filter
 const filterBtns = () => {
   const domString= `
-  <button type="button" class="btn btn-outline-primary">Show All</button>
-  <button type="button" class="btn btn-outline-success">Slytherin</button>
-  <button type="button" class="btn btn-outline-warning">Griffindor</button>
-  <button type="button" class="btn btn-outline-danger">HufflePuff</button>
-  <button type="button" class="btn btn-outline-secondary">RavenClaw</button>
+  <button type="button" id ="showALL" class="btn btn-outline-primary">Show All</button>
+  <button type="button" id="Slytherin" class="btn btn-outline-success">Slytherin</button>
+  <button type="button" id="Gryffindor" class="btn btn-outline-warning">Gryffindor</button>
+  <button type="button" id="Hufflepuff" class="btn btn-outline-danger">HufflePuff</button>
+  <button type="button" id="Ravenclaw" class="btn btn-outline-secondary">RavenClaw</button>
 `;
 renderToDom("#filterContainer", domString)
 };
 // form
-// TODO make form work
+
 const formModal = () => {
 const domString = `<!-- Button trigger modal -->
 <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addStudent">
@@ -133,10 +133,25 @@ const evilCardsOnDom = (badGuys) => {
 };
 
 // TODO event listerners 
+const eventListeners = () =>{
 
 
+// filter buttons
+  document.querySelector('#filterContainer').addEventListener('click', (e) => {
+    console.log(e.target.id)
+      if(e.target.id === "showALL"){
+        cardsOnDom(students);
+      } else if (e.target.id){
+        const houses = students.filter(houseType => houseType.house === e.target.id);
+        cardsOnDom(houses);
+      }
+
+  });
 
 
+};
+// TODO add randomizer to choose house for new form submition
+// TODO add form functionality
 
   const startApp = () => {
     introCardDom();
@@ -144,6 +159,7 @@ const evilCardsOnDom = (badGuys) => {
     filterBtns();
     cardsOnDom(students);
     evilCardsOnDom(badGuys);
+    eventListeners();
 
   };
 
