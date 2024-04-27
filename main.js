@@ -48,7 +48,7 @@ const introCardDom = () => {
 
 
 // iterate filter buttons
-// TODO make them filter
+
 const filterBtns = () => {
   const domString= `
   <h4>Filter Houses</h4>
@@ -162,7 +162,8 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
     const [, id] = e.target.id.split("--");
     const index = students.findIndex((student) => student.id === id);
       if (e.target.id.includes('delete')) {
-      students.splice(index, 1);
+
+        students.splice(index, 1);
         
         cardsOnDom(students);
         evilCardsOnDom(badGuys);
@@ -172,11 +173,11 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
   // FORM SUBMIT
   const form = document.querySelector('form');
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault(1,5);
     let newStudent = {
       id: students.length+1,
       name: document.querySelector("#name").value,
-      house: " " ,
+      house: houseRandom(1,4) ,
       imageUrl: document.querySelector("#image").value,
     };
     students.push(newStudent);
@@ -189,11 +190,25 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
 
   });
 
-
+// THE DUMBEST RNG EVER LETS GOOOO
+let houseRandom = (min, max) => {
+ let x = Math.random() * (max - min) + min ;
+ console.log(x)
+ if(x<2){
+  return "Slytherin"
+ } else if ( x>=2 && x<3){
+  return "Gryffindor"
+ } else if(x>=3 && x<4){
+  return "HufflePuff"
+ } else if(x>=4 && x<5){
+  return "Ravenclaw"
+ }
 
 };
-// TODO add randomizer to choose house for new form submition
-// TODO add form functionality
+
+};
+
+
 
   const startApp = () => {
     introCardDom();
