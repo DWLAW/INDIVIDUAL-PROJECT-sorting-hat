@@ -22,11 +22,40 @@ const students = [
   },
   {
     id: 4,
+    name: "hagrid",
+    house: "Ravenclaw",
+    imageUrl: "img/hagrid.jpg"
+
+  },
+  {
+    id: 5,
+    name: "harry wizard",
+    house: "HufflePuff",
+    imageUrl: "img/hagrid.jpg"
+
+  },
+  {
+    id: 6,
+    name: "harry wizard",
+    house: "Gryffindor",
+    imageUrl: "img/hagrid.jpg"
+
+  },
+  {
+    id: 7,
+    name: "harry wizard",
+    house: "Slytherin",
+    imageUrl: "img/hagrid.jpg"
+
+  },
+  {
+    id: 8,
     name: "harry wizard",
     house: "Ravenclaw",
     imageUrl: "img/hagrid.jpg"
 
   },
+
 ];
 
 const badGuys = [
@@ -120,10 +149,10 @@ const cardsOnDom = (students) => {
     //card 
       domString += `
       <div id = "studentCardContainer"> 
-        <div class="card" style="width: 18rem;" id = "${student.house}">
+        <div class="card" style="width: 12rem;" id = "${student.house}">
           <h5 class="card-title">${student.name}</h5>
           <img src=${student.imageUrl} width="400" 
-          height="250" class="card-img-top" alt=${student.name}>
+          height="150" class="card-img-top" alt=${student.name}>
           <div class="card-body">
             <p class="card-text" id="${student.house}">${student.house}</p>
             <button type="button" class="btn btn-danger"id="delete--${student.id}">Expel</button>
@@ -142,10 +171,10 @@ const evilCardsOnDom = (badGuys) => {
       domString += `
       <div id = "evilStudentCardContainer"> 
       
-        <div class="card" style="width: 18rem;" id = "badGuyCards">
+        <div class="card" style="width: 12rem;" id = "badGuyCards">
           <h5 class="card-title">${badGuy.name}</h5>
           <img src=${badGuy.imageUrl} width="400" 
-          height="250" class="card-img-top" alt=${badGuy.name}>
+          height="150" class="card-img-top" alt=${badGuy.name}>
           <div class="card-body">
             <p class="card-text" id="${badGuy.house}">${badGuy.house}</p>
             

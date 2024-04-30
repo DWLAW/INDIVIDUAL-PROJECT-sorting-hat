@@ -8,7 +8,7 @@ body{
   scale: 100%;
   justify-content: center;
   padding: 2rem;
-
+  
 }
 
 #formContainer{
@@ -43,22 +43,25 @@ background-color: rgb(223, 205, 49);
 #evilCardContainer{
   display: flex;
   justify-content: space-evenly;
-  padding: 20px;
+  
   flex-direction: row;
   flex-wrap: wrap;
-  row-gap: 5rem;
-  column-gap: 5rem;
-
+  width: 30%;
+  display: left;
+  float: right;
 }
 #cardContainer{
   display: flex;
   justify-content: space-evenly;
-  padding: 20px;
+  
   flex-direction: row;
   flex-wrap: wrap;
-  row-gap: 5rem;
-  column-gap: 5rem;
-  ;
+  width: 70%;
+  float: left;
+ 
+}
+h4{
+  text-align: center;
 }
 
 #bothCardContainers{
