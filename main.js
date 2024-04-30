@@ -36,8 +36,8 @@ const renderToDom = (divId, textToRender) => {
 
 const introCardDom = () => {
   const domString = `
-  <div class="card" style="width: 50rem;">
-  <img src="img/hogwartscrest.png" class="card-img-top" alt="...">
+  <div class="card" id="introCardDom" style="width: 30rem;">
+  <img src="img/hogwartscrest.png" id="introImg" class="card-img-top" alt="...">
   <div class="card-body">
   <h5 class="cardTitle">Welcome to Hogwarts Sorting Hat</h5>
   <p class="card-text">Here you can view all students and the houses they are in and get sorted into one yourself.</p>
@@ -52,10 +52,11 @@ const introCardDom = () => {
 const filterBtns = () => {
   const domString= `
   <h4>Filter Houses</h4>
-  <button type="button" id ="showALL" class="btn btn-outline-primary">Show All</button>
-  <button type="button" id="Slytherin" class="btn btn-outline-success">Slytherin</button>
-  <button type="button" id="Gryffindor" class="btn btn-outline-warning">Gryffindor</button>
-  <button type="button" id="Hufflepuff" class="btn btn-outline-danger">HufflePuff</button>
+  
+  <button type="button" id ="showALL" class="btn btn-outline-secondary">Show All</button>
+  <button type="button" id="Slytherin" class="btn btn-outline-secondary">Slytherin</button>
+  <button type="button" id="Gryffindor" class="btn btn-outline-secondary">Gryffindor</button>
+  <button type="button" id="Hufflepuff" class="btn btn-outline-secondary">HufflePuff</button>
   <button type="button" id="Ravenclaw" class="btn btn-outline-secondary">RavenClaw</button>
 `;
 renderToDom("#filterContainer", domString)
@@ -104,7 +105,7 @@ const cardsOnDom = (students) => {
     //card 
       domString += `
       <div id = "studentCardContainer"> 
-        <div class="card" style="width: 18rem;" id = "studentCards">
+        <div class="card" style="width: 18rem;" id = "${student.house}">
           <h5 class="card-title">${student.name}</h5>
           <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
           <div class="card-body">
@@ -153,6 +154,7 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
         const houses = students.filter(houseType => houseType.house === e.target.id);
         cardsOnDom(houses);
         evilCardsOnDom(badGuys);
+        
       }
     
   });
