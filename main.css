@@ -1,3 +1,4 @@
+/* TODO ADD BACKGROUND IMAGE AND STYLE */
 body{
   background-color: antiquewhite;
   
@@ -38,25 +39,29 @@ background-color: rgb(223, 205, 49);
 #badGuyCards{
   background-color: rgba(209, 48, 48, 0.767);
 }
+
 #evilCardContainer{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 20px;
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 5rem;
-  column-gap: 10rem;
+  column-gap: 5rem;
 
 }
 #cardContainer{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 20px;
   flex-direction: row;
   flex-wrap: wrap;
   row-gap: 5rem;
-  column-gap: 10rem;
+  column-gap: 5rem;
+  ;
 }
-h4{
+
+#bothCardContainers{
   text-align: center;
+  
 }
