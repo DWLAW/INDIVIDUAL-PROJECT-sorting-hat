@@ -6,6 +6,7 @@ body{
   display: flex;
   scale: 100%;
   justify-content: center;
+  padding: 2rem;
 
 }
 
@@ -17,6 +18,7 @@ body{
   
   display: flex;
   justify-content: center;
+  padding: 1rem;
 }
 #Slytherin{
   background-color: rgb(76, 205, 50);
@@ -24,8 +26,8 @@ body{
 #Gryffindor{
 background-color: rgb(223, 205, 49);
 }
-#Hufflepuff{
-  background-color: blueviolet;
+#HufflePuff{
+  background-color: rgb(173, 110, 233);
 }
 #Ravenclaw{
   background-color: rgb(185, 185, 180);

@@ -13,6 +13,12 @@ const students = [
     imageUrl:"img/Malfoy.jpg",
 
   },
+  {
+    id:3,
+    name: "Dog",
+    house: "HufflePuff",
+    imageUrl: "https://media.istockphoto.com/id/1503385646/photo/portrait-funny-and-happy-shiba-inu-puppy-dog-peeking-out-from-behind-a-blue-banner-isolated.jpg?s=612x612&w=is&k=20&c=d3_Foq65pSBGelz6FDDrHf61HviqDmKDN-2CIUd4Bvk=",
+  }
 ];
 
 const badGuys = [
@@ -56,7 +62,7 @@ const filterBtns = () => {
   <button type="button" id ="showALL" class="btn btn-outline-secondary">Show All</button>
   <button type="button" id="Slytherin" class="btn btn-outline-secondary">Slytherin</button>
   <button type="button" id="Gryffindor" class="btn btn-outline-secondary">Gryffindor</button>
-  <button type="button" id="Hufflepuff" class="btn btn-outline-secondary">HufflePuff</button>
+  <button type="button" id="HufflePuff" class="btn btn-outline-secondary">HufflePuff</button>
   <button type="button" id="Ravenclaw" class="btn btn-outline-secondary">RavenClaw</button>
 `;
 renderToDom("#filterContainer", domString)
@@ -107,7 +113,8 @@ const cardsOnDom = (students) => {
       <div id = "studentCardContainer"> 
         <div class="card" style="width: 18rem;" id = "${student.house}">
           <h5 class="card-title">${student.name}</h5>
-          <img src=${student.imageUrl} class="card-img-top" alt=${student.name}>
+          <img src=${student.imageUrl} width="400" 
+          height="250" class="card-img-top" alt=${student.name}>
           <div class="card-body">
             <p class="card-text" id="${student.house}">${student.house}</p>
             <button type="button" class="btn btn-danger"id="delete--${student.id}">Expel</button>
@@ -128,7 +135,8 @@ const evilCardsOnDom = (badGuys) => {
       
         <div class="card" style="width: 18rem;" id = "badGuyCards">
           <h5 class="card-title">${badGuy.name}</h5>
-          <img src=${badGuy.imageUrl} class="card-img-top" alt=${badGuy.name}>
+          <img src=${badGuy.imageUrl} width="400" 
+          height="250" class="card-img-top" alt=${badGuy.name}>
           <div class="card-body">
             <p class="card-text" id="${badGuy.house}">${badGuy.house}</p>
             
@@ -193,18 +201,18 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
     form.reset();
 
   });
-
+ 
 // THE DUMBEST RNG EVER LETS GOOOO
 let houseRandom = (min, max) => {
- let x = Math.random() * (max - min) + min ;
+ let x = Math.floor(Math.random() * (max - min + 1) + min) ;
  console.log(x)
- if(x<2){
+ if(x===1){
   return "Slytherin"
- } else if ( x>=2 && x<3){
+ } else if ( x===2 ){
   return "Gryffindor"
- } else if(x>=3 && x<4){
+ } else if(x===3 ){
   return "HufflePuff"
- } else if(x>=4 && x<5){
+ } else if(x===4 ){
   return "Ravenclaw"
  }
 
