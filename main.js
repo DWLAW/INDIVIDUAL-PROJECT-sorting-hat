@@ -19,7 +19,14 @@ const students = [
     name: "Dog",
     house: "HufflePuff",
     imageUrl: "https://media.istockphoto.com/id/1503385646/photo/portrait-funny-and-happy-shiba-inu-puppy-dog-peeking-out-from-behind-a-blue-banner-isolated.jpg?s=612x612&w=is&k=20&c=d3_Foq65pSBGelz6FDDrHf61HviqDmKDN-2CIUd4Bvk=",
-  }
+  },
+  {
+    id: 4,
+    name: "harry wizard",
+    house: "Ravenclaw",
+    imageUrl: "img/hagrid.jpg"
+
+  },
 ];
 
 const badGuys = [
@@ -82,6 +89,7 @@ Apply to be a First Year Student!
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title">Be sorted into a house!</h5>
+      <div> <img src="img/hat.png" width="150"> </div>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body" id="modal-body">
