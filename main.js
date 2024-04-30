@@ -1,4 +1,5 @@
 // initial students array
+// TODO ADD MORE DATA TO STUDENTS
 const students = [
   {
     id: 1,
@@ -158,11 +159,13 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
       if(e.target.id === "showALL"){
         cardsOnDom(students);
         evilCardsOnDom(badGuys);
+      } else if(e.target.id === "filterContainer"){
+          // do nothing
       } else if (e.target.id){
-        const houses = students.filter(houseType => houseType.house === e.target.id);
-        cardsOnDom(houses);
-        evilCardsOnDom(badGuys);
-        
+          const houses = students.filter(houseType => houseType.house === e.target.id);
+          cardsOnDom(houses);
+          evilCardsOnDom(badGuys);
+          
       }
     
   });
