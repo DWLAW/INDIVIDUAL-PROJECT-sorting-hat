@@ -80,7 +80,7 @@ const renderToDom = (divId, textToRender) => {
 const introCardDom = () => {
   const domString = `
   <div class="card" id="introCardDom" style="width: 30rem;">
-  <img src="img/hogwartscrest.png" id="introImg" class="card-img-top" alt="...">
+  
   <div class="card-body">
   <h5 class="cardTitle">Welcome to Hogwarts Sorting Hat</h5>
   <p class="card-text">Here you can view all students and the houses they are in and get sorted into one yourself.</p>
@@ -94,9 +94,9 @@ const introCardDom = () => {
 
 const filterBtns = () => {
   const domString= `
-  <h4>Filter Houses</h4>
   
-  <button type="button" id ="showALL" class="btn btn-outline-secondary">Show All</button>
+  
+  <button type="button" id ="showALL" class="btn btn-secondary">Show All</button>
   <button type="button" id="Slytherin" class="btn btn-outline-secondary">Slytherin</button>
   <button type="button" id="Gryffindor" class="btn btn-outline-secondary">Gryffindor</button>
   <button type="button" id="HufflePuff" class="btn btn-outline-secondary">HufflePuff</button>

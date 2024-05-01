@@ -1,7 +1,7 @@
 /* TODO ADD BACKGROUND IMAGE AND STYLE */
 body{
-  background-color: antiquewhite;
-  
+  background-image: url(img/background.jpg);
+  background-size: 100%;
 }
 #introCard{
   display: flex;
@@ -22,16 +22,17 @@ body{
   padding: 1rem;
 }
 #Slytherin{
-  background-color: rgb(76, 205, 50);
+  background-color: rgb(76, 205, 50, 0.767);
+  
 }
 #Gryffindor{
-background-color: rgb(223, 205, 49);
+background-color: rgb(223, 205, 49, 0.767);
 }
 #HufflePuff{
-  background-color: rgb(173, 110, 233);
+  background-color: rgb(173, 110, 233, 0.767);
 }
 #Ravenclaw{
-  background-color: rgb(185, 185, 180);
+  background-color: rgb(185, 185, 180,0.767);
 }
 .btn{
   color: black;
@@ -43,7 +44,7 @@ background-color: rgb(223, 205, 49);
 #evilCardContainer{
   display: flex;
   justify-content: space-evenly;
-  
+  row-gap: 10px;
   flex-direction: row;
   flex-wrap: wrap;
   width: 30%;
@@ -58,10 +59,14 @@ background-color: rgb(223, 205, 49);
   flex-wrap: wrap;
   width: 70%;
   float: left;
+  row-gap: 10px;
  
 }
 h4{
+  padding-top: 25px;
   text-align: center;
+  color: white;
+  
 }
 
 #bothCardContainers{
