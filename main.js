@@ -1,5 +1,5 @@
 // initial students array
-// TODO ADD MORE DATA TO STUDENTS
+
 const students = [
   {
     id: 1,
@@ -8,14 +8,14 @@ const students = [
     imageUrl:"img/harry.jpg",
   },
   {
-    id: 1,
+    id: 2,
     name: "Droco",
     house: "Slytherin",
     imageUrl:"img/Malfoy.jpg",
 
   },
   {
-    id:3,
+    id: 3,
     name: "Dog",
     house: "HufflePuff",
     imageUrl: "https://media.istockphoto.com/id/1503385646/photo/portrait-funny-and-happy-shiba-inu-puppy-dog-peeking-out-from-behind-a-blue-banner-isolated.jpg?s=612x612&w=is&k=20&c=d3_Foq65pSBGelz6FDDrHf61HviqDmKDN-2CIUd4Bvk=",
@@ -24,35 +24,35 @@ const students = [
     id: 4,
     name: "hagrid",
     house: "Ravenclaw",
-    imageUrl: "img/hagrid.jpg"
+    imageUrl: "img/hagrid.jpg",
 
   },
   {
     id: 5,
-    name: "harry wizard",
+    name: "wizard",
     house: "HufflePuff",
-    imageUrl: "img/hagrid.jpg"
+    imageUrl: "img/hagrid.jpg",
 
   },
   {
     id: 6,
-    name: "harry wizard",
+    name: "wizard",
     house: "Gryffindor",
-    imageUrl: "img/hagrid.jpg"
+    imageUrl: "img/hagrid.jpg",
 
   },
   {
     id: 7,
-    name: "harry wizard",
+    name: "wizard",
     house: "Slytherin",
-    imageUrl: "img/hagrid.jpg"
+    imageUrl: "img/hagrid.jpg",
 
   },
   {
     id: 8,
-    name: "harry wizard",
+    name: "wizard",
     house: "Ravenclaw",
-    imageUrl: "img/hagrid.jpg"
+    imageUrl: "img/hagrid.jpg",
 
   },
 
@@ -209,13 +209,14 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
   // button on card
   // takes the deleted student and adds it to the expelled student list
   document.querySelector('#cardContainer').addEventListener('click', (e) => {
-    const [, id] = e.target.id.split("--");
-    const index = students.findIndex((student) => student.id === id);
-      if (e.target.id.includes('delete')) {
-
-        let expelledStudent = students.splice(index, 1)[0];
+    const [,id] = e.target.id.split("--");
+    const index = students.findIndex((student) => student.id === Number(id));
+    if (e.target.id.includes('delete')) {
+      
+        let expelledStudent = students.splice(index, 1)[0]; 
+        console.log(expelledStudent)
         expelledStudent.house ="Voldemort's Army";
-        badGuys.push(expelledStudent)          
+        badGuys.push(expelledStudent);          
         
         cardsOnDom(students);
         evilCardsOnDom(badGuys);
