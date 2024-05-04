@@ -29,30 +29,30 @@ const students = [
   },
   {
     id: 5,
-    name: "wizard",
+    name: "dobby",
     house: "HufflePuff",
-    imageUrl: "img/hagrid.jpg",
+    imageUrl: "img/dobby.jpg",
 
   },
   {
     id: 6,
-    name: "wizard",
+    name: "Dumbledore",
     house: "Gryffindor",
-    imageUrl: "img/hagrid.jpg",
+    imageUrl: "img/Dumbledore.jpg",
 
   },
   {
     id: 7,
-    name: "wizard",
+    name: "Snape",
     house: "Slytherin",
-    imageUrl: "img/hagrid.jpg",
+    imageUrl: "img/snape.jpg",
 
   },
   {
     id: 8,
-    name: "wizard",
+    name: "Hedwig",
     house: "Ravenclaw",
-    imageUrl: "img/hagrid.jpg",
+    imageUrl: "img/hedwig.png",
 
   },
 
@@ -126,7 +126,7 @@ Apply to be a First Year Student!
       <div class="form-floating mb-3">
         <input class="form-control form-control-lg" type="text" placeholder="First Year's Name" id="name" aria-label="name" required>
         <label for="name">First Year's Name</label>
-      </dkv>
+      </div>
         
       <div class="form-floating mb-3">
           <input class="form-control form-control-lg" type="url"  placeholder="Student Photo" id="image" aria-label="image"required>
@@ -247,17 +247,24 @@ const formModal = new bootstrap.Modal(document.querySelector('#addStudent'));
 let houseRandom = (min, max) => {
  let x = Math.floor(Math.random() * (max - min + 1) + min) ;
  console.log(x)
- if(x===1){
-  return "Slytherin"
- } else if ( x===2 ){
-  return "Gryffindor"
- } else if(x===3 ){
-  return "HufflePuff"
- } else if(x===4 ){
-  return "Ravenclaw"
- }
-
+ switch(x){
+  case 1: return "Slytherin";
+  case 2: return "Gryffindor";
+  case 3: return "HufflePuff";
+  case 4: return "Ravenclaw";
+ };
 };
+//  if(x===1){
+//   return "Slytherin"
+//  } else if ( x===2 ){
+//   return "Gryffindor"
+//  } else if(x===3 ){
+//   return "HufflePuff"
+//  } else if(x===4 ){
+//   return "Ravenclaw"
+//  }
+
+// };
 
 };
 

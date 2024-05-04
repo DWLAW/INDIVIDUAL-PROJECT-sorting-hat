@@ -20,6 +20,7 @@ body{
   display: flex;
   justify-content: center;
   padding: 1rem;
+  column-gap: 3px;
 }
 #Slytherin{
   background-color: rgb(76, 205, 50, 0.767);
@@ -48,13 +49,13 @@ background-color: rgb(223, 205, 49, 0.767);
   flex-direction: row;
   flex-wrap: wrap;
   width: 30%;
-  display: left;
+ 
   float: right;
 }
 #cardContainer{
   display: flex;
   justify-content: space-evenly;
-  
+  column-gap: 0.5rem;
   flex-direction: row;
   flex-wrap: wrap;
   width: 70%;
