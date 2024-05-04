@@ -1,5 +1,6 @@
 # Sorting Hat
 https://dwlawsortinghat.netlify.app/
+Video walkthrough https://www.loom.com/share/39e3e09424724cd7b20153a451f6fd0f
 
 ## Sorting Hat Project Overview
 An app that randomly assigns you to a hogwarts wizard house after you fill out the form.
