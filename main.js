@@ -129,7 +129,7 @@ Apply to be a First Year Student!
       </div>
         
       <div class="form-floating mb-3">
-          <input class="form-control form-control-lg" type="url"  placeholder="Student Photo" id="image" aria-label="image"required>
+          <input class="form-control form-control-lg" type="url"  placeholder="Student Photo" id="image" aria-label="image">
           <label for="imageUrl">Student Photo</label>
       </div>
       <div>
@@ -254,20 +254,8 @@ let houseRandom = (min, max) => {
   case 4: return "Ravenclaw";
  };
 };
-//  if(x===1){
-//   return "Slytherin"
-//  } else if ( x===2 ){
-//   return "Gryffindor"
-//  } else if(x===3 ){
-//   return "HufflePuff"
-//  } else if(x===4 ){
-//   return "Ravenclaw"
-//  }
-
-// };
 
 };
-
 
 
   const startApp = () => {
